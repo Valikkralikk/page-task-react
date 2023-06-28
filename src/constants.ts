@@ -1,0 +1,1 @@
+export const MAIN_URL = 'https://testbackend.nc-one.com';

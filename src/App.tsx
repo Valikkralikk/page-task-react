@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
 
-function App() {
+import Header from './components/Header/Header';
+import MainContainer from './components/MainContainer/MainContainer';
+import { useStoreState } from './store';
+import { getAllCards } from './services';
+import { BrowserRouter } from 'react-router-dom';
+
+const App = () => {
+  const cards = useStoreState('cards');
+
+  useEffect(() => {
+    getAllCards()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename={'/'}>
+      <div className="App">
+        <Header />
+        <MainContainer cards={cards} />
+      </div>
+    </BrowserRouter>
   );
 }
 

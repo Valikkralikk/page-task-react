@@ -1,0 +1,27 @@
+.favorite-list_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    width: 407px;
+    height: 880px;
+    margin: 0 auto;
+    border: 1px dashed #414141;
+    border-radius: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.title {
+    font-family: Anek Telugu;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 45px;
+
+}
