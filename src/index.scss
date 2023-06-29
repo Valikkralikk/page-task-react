@@ -9,6 +9,7 @@
 
 body {
   max-height: 100vh;
+  overflow-y: hidden;
 }
 
 :root {
@@ -22,6 +23,12 @@ body {
   margin: auto;
   padding-left: 90px;
   padding-right: 90px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ::-webkit-scrollbar {

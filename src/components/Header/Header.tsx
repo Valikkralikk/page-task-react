@@ -11,7 +11,7 @@ const Header = () => {
     const title: string = pathname === '/' ? 'Product list Page' : 'Product Page';
 
     return (
-        <div className='wrapper header'>
+        <div className='header'>
             <span onClick={handleClick}>{title.toUpperCase()}</span>
         </div>
     )

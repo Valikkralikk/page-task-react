@@ -22,7 +22,7 @@ const ProductCardInfo = () => {
     return <>
         {
             card ? <div className='products-card-info_container'>
-                <CardImage heigth={448} src={`${MAIN_URL}${card.src}`} alt={card.name} width={'448px'} />
+                <CardImage height={'448px'} src={`${MAIN_URL}${card.src}`} alt={card.name} width={'448px'} withZoom/>
                 <CardInfo
                     styles={{ width: '600px' }}
                     textStyle={{ paddingTop: '65px', marginBottom: '60px' }}

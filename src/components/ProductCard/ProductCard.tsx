@@ -1,15 +1,16 @@
 import '../../index.scss';
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import { Card, CardActionArea } from "@mui/material";
 import { CardType } from "../../types/types";
 import { MAIN_URL } from "../../constants";
-import CardPrice from './components/CardPrice';
 import { useNavigate } from 'react-router-dom';
 import CardImage from './components/CardImage';
 import CardInfo from './components/CardInfo';
+import { useStoreState } from '../../store';
 
 
-const ProductCard = ({ card, isRow, isSelected }: { card: CardType, isRow?: boolean, isSelected?: boolean }) => {
+const ProductCard = ({ card, isRow }: { card: CardType, isRow?: boolean }) => {
   const navigate = useNavigate();
+  const selected = useStoreState('selected');
 
   const styles: Record<string, any> = isRow ? { display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-around' } : {};
   return <Card sx={
@@ -38,14 +39,14 @@ const ProductCard = ({ card, isRow, isSelected }: { card: CardType, isRow?: bool
         justifyContent: 'space-between',
         alignItems: 'stretch',
       }}>
-      <CardImage heigth={isRow ? 108 : 350 / 100 * 50} src={`${MAIN_URL}${card.src}`} alt={card.name} width={isRow ? '108px' : '100%'} />
+      <CardImage height={isRow ? 108 : 350 / 100 * 50} src={`${MAIN_URL}${card.src}`} alt={card.name} width={isRow ? '108px' : '100%'} />
       <CardInfo
         styles={styles}
         fontSize={isRow ? 16 : 20}
         buttonSize={isRow ? 30 : 36}
         card={card}
         isRow={isRow}
-        isSelected={isSelected}
+        isSelected={selected.includes(card.id)}
         priceSize={isRow ? 20 : 24}
       />
     </CardActionArea >
